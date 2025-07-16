@@ -27,12 +27,12 @@ const sims = await getSimsCast();
 
     <h3>The Saga</h3>
     <h4>Generation 1</h4>
-    <p>The founding of this legacy, following <a href="/shrines/sims/miguel-basilio">Miguel Basilio</a> as he first moved to Windenburg; just him and his huge, empty plot of land against the world. This generation was pretty short, with me starting generation 2 at the end of that first play session. Regardless, this will be your best starting point!</p>
+    <p>The founding of this legacy, following <a href="/profile/miguel-basilio">Miguel Basilio</a> as he first moved to Windenburg; just him and his huge, empty plot of land against the world. This generation was pretty short, with me starting generation 2 at the end of that first play session. Regardless, this will be your best starting point!</p>
     <ul>
         {postsOldest
             .filter(post => post.data.generation === 1)
             .map(post => (
-                <li><a href={`/shrines/sims/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
+                <li><a href={`/basilio/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
             )
         )}
     </ul>
@@ -43,7 +43,7 @@ const sims = await getSimsCast();
         {postsOldest
             .filter(post => post.data.generation === 2)
             .map(post => (
-                <li><a href={`/shrines/sims/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
+                <li><a href={`/basilio/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
             )
         )}
     </ul>
@@ -54,7 +54,7 @@ const sims = await getSimsCast();
         {postsOldest
             .filter(post => post.data.generation === 3)
             .map(post => (
-                <li><a href={`/shrines/sims/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
+                <li><a href={`/basilio/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
             )
         )}
     </ul>
