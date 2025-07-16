@@ -35,7 +35,7 @@ const sims = await getSimsCast();
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Cast</a>
                                 <ul class="dropdown-menu">
                                     {sims.map(sim => (
-                                        <li><a class="nav-link" href={`/sim/${sim.slug}`}>{sim.name}</a></li>
+                                        <li><a class="nav-link" href={`/profile/${sim.slug}`}>{sim.name}</a></li>
                                     ))}
                                 </ul>
                             </li>
