@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const currentPost = posts.findIndex((post) => post.id === Astro.params.id);
+const prevPost = currentPost + 1 === posts.length ? null : posts[currentPost + 1];
+const nextPost = currentPost === 0 ? null : posts[currentPost - 1];
+---
+{
+  (prevPost || nextPost) && (
+    <div class="pb-5 navbuttons">
+      { prevPost && ( <span class="float-start mb-3"><a href={`/shrines/sims/${prevPost.id}/`}>&larr; {prevPost.data.generation}.{prevPost.data.chapter}: {prevPost.data.title}</a></span> ) }
+      { nextPost && ( <span class="float-end mb-3"><a href={`/shrines/sims/${nextPost.id}/`}>{nextPost.data.generation}.{nextPost.data.chapter}: {nextPost.data.title} &rarr;</a></span> ) }
+    </div>
+  )
+}

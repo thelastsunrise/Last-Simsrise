@@ -1,0 +1,61 @@
+---
+import SimsLayout from "../../../layouts/SimsLayout.astro";
+import { getSimsCast } from "../../../components/scripts/getSimsCast.js"
+
+import { getCollection } from "astro:content";
+
+const title = "Basilio Legacy";
+const description = "My Sims 4 Legacy Challenge.";
+
+const postsOldest = (await getCollection("sims")).sort(
+    (b, a) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const sims = await getSimsCast();
+---
+<SimsLayout title={title} description={description}>
+    <p>The Basilio Legacy, my current legacy challenge project, is my first time venturing into the Sims 4. Albeit, heavily modded (the only way I will ever be able to play TS4).</p>
+    <p>I'm playing this challenge with the following rules in mind:</p>
+    <ul>
+        <li><strong>Gender law: Equal </strong>- The Founder may be of either gender. Both boys and girls are eligible for the title of heir.</li>
+        <li><strong>Bloodline law: Strict Traditional </strong>- To be eligible to be named heir, a child must be naturally born from their previous-generation parents and be able to trace an unbroken bloodline back to the founder. Adopted children may never be named heir.</li>
+        <li><strong>Heir law: Exemplar (modified) </strong>- At the beginning of the challenge, name a single trait. This trait must be one of your founder's three traits. Any eligible heir that has this trait will gain the title of heir. If a single generation has no children with this trait follow the First Born rule. If more than one child has the Exemplar trait then the oldest child WITH the trait will be the heir.</li>
+        <li><strong>Species law: Tolerant </strong>- The species of the child has no impact on their eligibility for heir status.</li>
+        <li><strong>Exemplar trait: Purple Eyes </strong>- Where the "modified" part of the Exemplar rule comes in, and also why the Bloodline is on Strict Traditional. Instead of the standard personality trait, children must have purple eyes to be considered heir.</li>
+    </ul>
+    <p>I am also keeping track of points, because I love when numbers go up! Currently, the Basilios are at <strong>17 Points</strong>. If you'd like to read a more detailed overview of what points come from where, <a href="https://docs.google.com/spreadsheets/d/1UQSlc3o9PAcQjQFzXcWsVdKowKU5sUGnWO-yYYG27S0/edit?usp=sharing">click here</a>.</p>
+
+    <h3>The Saga</h3>
+    <h4>Generation 1</h4>
+    <p>The founding of this legacy, following <a href="/shrines/sims/miguel-basilio">Miguel Basilio</a> as he first moved to Windenburg; just him and his huge, empty plot of land against the world. This generation was pretty short, with me starting generation 2 at the end of that first play session. Regardless, this will be your best starting point!</p>
+    <ul>
+        {postsOldest
+            .filter(post => post.data.generation === 1)
+            .map(post => (
+                <li><a href={`/shrines/sims/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
+            )
+        )}
+    </ul>
+
+    <h4>Generation 2</h4>
+    <p>Following Miguel's twin children, <a href="/shrines/sims/elmira-basilio">Elmira</a> and <a href="/shrines/sims/etan-basilio">Etan Basilio</a> as they try and find their places in the big, wide world. The two were mostly raised by nannies, with their fathers' time being swept away by blinding success. Despite that, the twins always had each other's backs, through all of Elmira's social shennanigans and through Etan's ups and downs in the world of academia.</p>
+    <ul>
+        {postsOldest
+            .filter(post => post.data.generation === 2)
+            .map(post => (
+                <li><a href={`/shrines/sims/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
+            )
+        )}
+    </ul>
+
+    <h4>Generation 3</h4>
+    <p>The current chapter in the Basilio Legacy, following Elmira's only child, <a href="/shrines/sims/ajei-basilio">Ajei Basilio</a>.</p>
+    <ul>
+        {postsOldest
+            .filter(post => post.data.generation === 3)
+            .map(post => (
+                <li><a href={`/shrines/sims/${post.id}`}>{post.data.generation}.{post.data.chapter} - {post.data.title}</a></li>
+            )
+        )}
+    </ul>
+</SimsLayout>

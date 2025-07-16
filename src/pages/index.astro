@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import SimsLayout from "../layouts/SimsLayout.astro";
+import { getSimsCast } from "../components/scripts/getSimsCast.js"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { getCollection } from "astro:content";
+
+const title = "The Sims";
+const description = "My Sims 4 Legacy Challenge.";
+
+const posts = (await getCollection("sims")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const sims = await getSimsCast();
 ---
+<SimsLayout title={title} description={description}>
+    <figure class="float-lg-end ms-lg-4 text-center"><img src="/images/shrines/sims/ts3-ts3-v3-box.jpg"/></figure>
+    <p>The Sims is a series of life simulation games produced by Maxis, a division of EA Games. The mainline games have no real goal, and were created to emulate a sort of dollhouse feel where you design and control a guy and watch them live their life!</p>
+    <p>These games are very special to me, they were an interest shared with my mom growing up, and nowadays are a huge source of inspiration for my own game dev endeavors. I've always been very fascinated by the concept of emergent storylines; the pieces of plot a player puts together based on the random little things that happen to them in a game. I think of it like the text between the lines of a book; where prose is powerful because of its lack of visuals, the video game medium is so powerful because of the random, unique stories it creates for everyone.</p>
+    <p>So, for me the joy of Sims is simply seeing what my Sims get up to, rather than controlling them myself. But still, I get bored without a goal, so I usually end up playing some sort of <a href="https://simslegacychallenge.com/the-sims-4-legacy-challenge-rules/">Legacy Challenge</a>. Which, is exactly what I made this shrine to showcase!</p>
 
-<Layout>
-	<Welcome />
-</Layout>
+    <div class="lightgradient p-3 mb-3">
+        <h4><strong>Latest Post: </strong>{posts[0].data.generation}.{posts[0].data.chapter} - {posts[0].data.title}</h4>
+        <p>{posts[0].data.description}</p>
+        <div class="navbuttons" style="min-height:40px">
+            <span class="float-end"><a href=`/shrines/sims/${posts[0].id}`>Read more &rarr;</a></span>
+        </div>
+    </div>
+
+    <p class="text-center">Perhaps you want to <a href="/shrines/sims/basilio-g1">read from the beginning?</a> Or <a href="/shrines/sims/basilio-legacy">look at the legacy overview?</a></p>
+</SimsLayout>

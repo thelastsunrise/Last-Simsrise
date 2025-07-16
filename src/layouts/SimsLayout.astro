@@ -1,0 +1,68 @@
+---
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/sims.css";
+
+import { getSimsCast } from "../components/scripts/getSimsCast.js"
+
+const { title, description, altTitle } = Astro.props;
+
+const isBlog = Astro.props.altTitle;
+const pageTitle = isBlog ? altTitle : title;
+
+import Footer from "../components/Footer.astro"
+import HeadMeta from "../components/HeadMeta.astro";
+
+const sims = await getSimsCast();
+---
+<script>
+    import "bootstrap/js/dist/dropdown.js"
+</script>
+
+<html>
+    <HeadMeta title={title} description={description}/>
+    <body class="simslayout">
+        <a href="../../../../../"><div class="escapebutton">X</div></a>
+
+        <div class="container">
+            <header class="row">
+                <div class="col-12">
+                    <h1 class="text-center mt-5"><a href="/shrines/sims">Last Simsrise</a></h1>
+                    <nav class="navbar navbar-expand-md justify-content-around">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="/shrines/sims">Home</a>
+                            <a class="nav-link" href="/shrines/sims/basilio-legacy">Legacy</a>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Cast</a>
+                                <ul class="dropdown-menu">
+                                    {sims.map(sim => (
+                                        <li><a class="nav-link" href={`/shrines/sims/${sim.slug}`}>{sim.name}</a></li>
+                                    ))}
+                                </ul>
+                            </li>
+                            <a class="nav-link disabled" href="">Mods</a>
+                            <a class="nav-link disabled" href="">Links</a>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <main class="row px-lg-5 pb-5 pt-4 mb-5 lightgradient">
+                <div class="col-12">
+                    <h2>{pageTitle}</h2>
+                    <section class="px-4">
+                        <slot/>
+                    </section>
+                </div>
+            </main>
+
+            <footer class="row mb-5 mx-3">
+                <div class="col-12">
+                    <Footer />
+                </div>
+            </footer>
+        </div>
+
+        <script is:inline src="/scripts/ClickImage.js"></script>
+
+    </body>
+</html>

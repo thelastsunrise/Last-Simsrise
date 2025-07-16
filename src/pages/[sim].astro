@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+import SimsLayout from "../layouts/SimsLayout.astro";
+
+export async function getStaticPaths() {
+    const sims = await getCollection("simsCast");
+    
+    const paths = sims.flatMap(sim => {
+        return sim.data.generation.flatMap(gen => {
+            return gen.cast.map(char => ({
+                params: { sim: char.name.toLowerCase().replace(" ", "-") },
+                props: {
+                    char,
+                    generation: gen.number
+                }
+            }))
+        })
+    })
+
+    // Okay this code is a lot . note for my future self trying to comprehend this: when accessing deeply nested JSON data you need to explain exactly how to find the data you want via flatmaps
+    // All this function is doing is making a list of paths to generate, returning each layer of data step by step, and then passing the character info props
+
+    return paths;
+}
+
+const { char, generation } = Astro.props;
+
+const latestRef = 
+    char.images[0].eldersrc ||
+    char.images[0].matureadultsrc ||
+    char.images[0].youngadultsrc ||
+    char.images[0].teenagesrc ||
+    char.images[0].childsrc ||
+    char.images[0].occultsrc;
+---
+<SimsLayout title=`${char.name} (${char.pronouns})`>
+    <div class="row pt-3">
+        <div class="col-12 col-sm-6 col-lg-4 text-center">
+            <div class="tabs">
+                {char.images[0].childsrc && <button onclick="changeImage('ch')">Child</button>}
+                {char.images[0].teenagesrc && <button onclick="changeImage('tn')">Teenager</button>}
+                {char.images[0].youngadultsrc && <button onclick="changeImage('ya')">Young Adult</button>}
+                {char.images[0].matureadultsrc && <button onclick="changeImage('ma')">Adult</button>}
+                {char.images[0].eldersrc && <button onclick="changeImage('el')">Elder</button>}
+                {char.images[0].occultsrc && <button onclick="changeImage('oc')">Werewolf</button>}
+            </div>
+            <div id="referenceImageContainer">
+                <img id="referenceImage" src={latestRef}
+                    data-ch={char.images[0].childsrc}
+                    data-tn={char.images[0].teenagesrc}
+                    data-ya={char.images[0].youngadultsrc}
+                    data-ma={char.images[0].matureadultsrc}
+                    data-el={char.images[0].eldersrc}
+                    data-oc={char.images[0].occultsrc}
+                ></img>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-8">
+            <ul>
+                <li><strong>Generation {generation}</strong></li>
+                <li><strong>Role: </strong> {char.role}</li>
+                <li><strong>Currently: </strong>{char.status}</li>
+                <li><strong>Traits:</strong></li>
+                    <ul>
+                        {char.traits.map(trait =>
+                            <li>{trait}</li>
+                        )}
+                    </ul>
+                <li><strong>Relationships:</strong></li>
+                    <ul>
+                        {char.relationships.map(rel =>
+                            <li>
+                                {rel.link
+                                    ? <a href={`/shrines/sims/${rel.link}`}>{rel.name}</a>
+                                    : <>{rel.name}</>
+                                } ({rel.relation})
+                            </li>
+                        )}
+                    </ul>
+            </ul>
+        </div>
+
+        <div class="col-12 pt-4">
+            <h3>Biography</h3>
+            {char.isTrans && 
+                <div class="warning darkgradient p-2 mb-3">
+                    <h4>Disclaimer: On the use of pronouns</h4>
+                    <p style="padding-top:0">Each entry of this biography is written from a "present" point of view, capturing that character at that particular moment of their life (think of a third person diary entry). As such, the pronouns listed above for this <strong>trans character</strong> will not be reflected in entries prior to their coming out.</p>
+                </div>
+            }
+            {char.blurbs.map(blurb =>
+                <h4>{blurb.section}</h4>
+                <p style="padding-top:0">{blurb.text}</p>
+            )}
+        </div>
+    </div>
+</SimsLayout>
+
+<script is:inline>
+    // changes image src by way of the data in the actual image element
+    function changeImage(age) {
+        const image = document.getElementById("referenceImage");
+        image.src = image.dataset[age];
+    }
+</script>

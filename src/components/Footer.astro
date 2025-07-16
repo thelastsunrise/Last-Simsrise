@@ -1,0 +1,29 @@
+---
+import "bootstrap/dist/css/bootstrap.min.css";
+import fs from "fs/promises";
+import { parseStringPromise } from "xml2js";
+
+let latestDate = '';
+const filename ="changelog-rss.xml"
+const siteURL = "https://lastsunrise.art";
+
+try {
+    const changelogPath = await fetch(`${siteURL}/${filename}`);
+    const xmlContent = await changelogPath.text();
+    const parsed = await parseStringPromise(xmlContent);
+    const items = parsed.rss.channel[0].item;
+    const fullDate = new Date(items[0].pubDate[0]); // grab newest date in CL
+    latestDate = fullDate.toDateString();
+} catch (error) {
+    console.error("OOPS", error);
+}
+---
+<footer class="row">
+    <div class="col-12 footer-text text-center">
+        <div>
+            <p>Last Sunrise est. 2023 &#9734 Last updated <span>{latestDate}</span></p>
+            <p><a href="/sitemap">Sitemap</a> &#10023; <a href="/copyright">Copyright</a> &#10023; <a href="/rss">RSS</a> &#10023; <a href="mailto:cat@lastsunrise.art">Email</a></p>
+        </div>
+    </div>
+    <div class="footer-filler"></div>
+</footer>

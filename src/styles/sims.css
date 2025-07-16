@@ -1,0 +1,204 @@
+@import "./imagepopup.css";
+
+:root {
+    --blue: #5a8bbe;
+    --overlay: #0a1c56c8;
+    --green: #60b993;
+    --highlight: #b4fad5;
+    --whitebg: #ffffff;
+    --secondarybg: #eeeeee;
+    --tertiarybg: #a6b2c2;
+    --primarybg: #2a83c8;
+    --darkprimarybg: #305eaa;
+    --selected: #229430;
+    --textbold: #0e4ead;
+    --textdark: #404040;
+    --shadow: #212121;
+    --textlight: #308de2;
+}
+
+@font-face {
+    font-family: "ITC Kabel Std";
+    src: url("/fonts/ITCKabelStdBold.TTF");
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: "Carrois Gothic SC";
+    src: url("/fonts/carrois-gothic-sc.regular.ttf");
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("/fonts/Metropolis-Regular.otf");
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+}
+
+body.simslayout {
+    background: var(--blue);
+    background: no-repeat bottom/contain fixed url("/images/simsbg.svg"),
+                no-repeat top/100% 750px linear-gradient(180deg, var(--overlay) 0%, rgba(255, 255, 255, 0) 100%),
+                linear-gradient(90deg, var(--blue) 0%, var(--highlight) 50%, var(--green) 100%);
+    color: var(--textdark);
+    font-family: "Metropolis";
+}
+
+.simslayout {
+    h1 {
+        font-family: "ITC Kabel Std";
+        font-size: 72pt;
+        a {
+            color: var(--whitebg);
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--textlight)
+    }
+
+    h2, h3 {
+        font-family: "Carrois Gothic SC";
+        text-align: center;
+    }
+
+    h2 {
+        color: var(--textbold);
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: var(--whitebg);
+        background-color: var(--tertiarybg);
+        padding: 0.5rem;
+        margin: 0 -1.5rem 1rem;
+    }
+
+    .nav-link {
+        color: var(--whitebg);
+        &.disabled {
+            color: var(--tertiarybg);
+        }
+    }
+
+    .dropdown-menu {
+        .nav-link {
+            color: var(--textbold)
+        }
+    }
+
+    .container {
+        max-width: 1000px;
+    }
+
+    main {
+        border-radius: 1rem;
+    }
+
+    section {
+        border: 4pt var(--secondarybg) solid;
+        border-radius: 2pt;
+        background-color: var(--whitebg);
+        p:first-of-type {
+            padding-top: 1rem;
+        }
+    }
+
+    figure {
+        padding-top: 1rem;
+        border-radius: 4pt;
+    }
+
+    hr {
+        border: var(--secondarybg) 2pt solid;
+        margin: 1rem -1.5rem;
+        opacity: 1;
+    }
+
+    #referenceImage {
+        max-width: 100%;
+        max-height: 500px;
+    }
+
+    .navbuttons {
+        * {
+            padding: 0.25rem;
+            color: var(--whitebg);
+            border-radius: 4pt;
+            background-color: var(--darkprimarybg);
+        }
+        *:hover {
+            background: var(--primarybg);
+        }
+    }
+
+    button {
+        padding: 0.25rem;
+        color: var(--whitebg);
+        border: none;
+        border-radius: 4pt;
+        background-color: var(--darkprimarybg);
+    }
+    
+    button:hover {
+        background: var(--primarybg);
+    }
+
+    .escapebutton {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-align: center;
+        padding: 0 0;
+        background: var(--whitebg);
+        border-radius: 12px;
+        border: var(--shadow) solid 1pt;
+        color: var(--textdark)
+    }
+    .escapebutton:hover {
+        background-color: var(--tertiarybg);
+        color: var(--whitebg);
+        border: var(--whitebg) solid 1pt;
+    }
+
+    .lightgradient {
+        background: var(--whitebg);
+        background: linear-gradient(180deg, var(--whitebg) 40%, var(--secondarybg));
+        border: var(--secondarybg) solid 1pt;
+    }
+
+    .darkgradient {
+        background: var(--primarybg);
+        background: linear-gradient(180deg, var(--primarybg) 40%, var(--darkprimarybg));
+        border: var(--darkprimarybg) solid 1pt;
+        border-radius: 4pt;
+        color: var(--whitebg);
+    }
+
+    .blog {
+        text-align: center;
+        .blogimg {
+            border: var(--shadow) solid 1pt;
+            box-shadow: 0px 2px 7px var(--shadow);
+            max-width: 80%;
+        }
+        figcaption {
+            padding: 1.5rem 2rem 1rem;
+            font-weight: 500;
+            background: none;
+            border: none;
+        }
+    }
+
+    .overlayimg {
+        background-color: #030f20ac;
+    }
+}
