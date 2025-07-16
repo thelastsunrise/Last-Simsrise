@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import SimsLayout from "../layouts/SimsLayout.astro";
+import SimsLayout from "../../layouts/SimsLayout.astro";
 
 export async function getStaticPaths() {
     const sims = await getCollection("simsCast");

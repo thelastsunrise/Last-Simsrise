@@ -21,21 +21,21 @@ const sims = await getSimsCast();
 <html>
     <HeadMeta title={title} description={description}/>
     <body class="simslayout">
-        <a href="../../../../../"><div class="escapebutton">X</div></a>
+        <a href="https://lastsunrise.art"><div class="escapebutton">X</div></a>
 
         <div class="container">
             <header class="row">
                 <div class="col-12">
-                    <h1 class="text-center mt-5"><a href="/shrines/sims">Last Simsrise</a></h1>
+                    <h1 class="text-center mt-5"><a href="/">Last Simsrise</a></h1>
                     <nav class="navbar navbar-expand-md justify-content-around">
                         <div class="navbar-nav">
-                            <a class="nav-link" href="/shrines/sims">Home</a>
-                            <a class="nav-link" href="/shrines/sims/basilio-legacy">Legacy</a>
+                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="/basilio">Legacy</a>
                             <li class="dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Cast</a>
                                 <ul class="dropdown-menu">
                                     {sims.map(sim => (
-                                        <li><a class="nav-link" href={`/shrines/sims/${sim.slug}`}>{sim.name}</a></li>
+                                        <li><a class="nav-link" href={`/sim/${sim.slug}`}>{sim.name}</a></li>
                                     ))}
                                 </ul>
                             </li>
