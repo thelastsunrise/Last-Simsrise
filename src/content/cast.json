@@ -20,9 +20,9 @@
                         ],
                         "images": [
                             {
-                                "youngadultsrc": "/images/shrines/sims/miguel-ya-fullbody.png",
-                                "matureadultsrc": "/images/shrines/sims/miguel-ma-fullbody.png",
-                                "eldersrc": "/images/shrines/sims/miguel-el-fullbody.png"
+                                "youngadultsrc": "/images/simarts/miguel-ya-fullbody.png",
+                                "matureadultsrc": "/images/simarts/miguel-ma-fullbody.png",
+                                "eldersrc": "/images/simarts/miguel-el-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -61,9 +61,9 @@
                         ],
                         "images": [
                             {
-                                "youngadultsrc": "/images/shrines/sims/salim-ya-fullbody.png",
-                                "matureadultsrc": "/images/shrines/sims/salim-ma-fullbody.png",
-                                "eldersrc": "/images/shrines/sims/salim-el-fullbody.png"
+                                "youngadultsrc": "/images/simarts/salim-ya-fullbody.png",
+                                "matureadultsrc": "/images/simarts/salim-ma-fullbody.png",
+                                "eldersrc": "/images/simarts/salim-el-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -108,10 +108,10 @@
                         ],
                         "images": [
                             {
-                                "childsrc": "/images/shrines/sims/elmira-ch-fullbody.png",
-                                "teenagesrc": "/images/shrines/sims/elmira-tn-fullbody.png",
-                                "youngadultsrc": "/images/shrines/sims/elmira-ya-fullbody.png",
-                                "matureadultsrc": "/images/shrines/sims/elmira-ma-fullbody.png"
+                                "childsrc": "/images/simarts/elmira-ch-fullbody.png",
+                                "teenagesrc": "/images/simarts/elmira-tn-fullbody.png",
+                                "youngadultsrc": "/images/simarts/elmira-ya-fullbody.png",
+                                "matureadultsrc": "/images/simarts/elmira-ma-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -154,10 +154,10 @@
                         ],
                         "images": [
                             {
-                                "childsrc": "/images/shrines/sims/etan-ch-fullbody.png",
-                                "teenagesrc": "/images/shrines/sims/etan-tn-fullbody.png",
-                                "youngadultsrc": "/images/shrines/sims/etan-ya-fullbody.png",
-                                "matureadultsrc": "/images/shrines/sims/etan-ma-fullbody.png"
+                                "childsrc": "/images/simarts/etan-ch-fullbody.png",
+                                "teenagesrc": "/images/simarts/etan-tn-fullbody.png",
+                                "youngadultsrc": "/images/simarts/etan-ya-fullbody.png",
+                                "matureadultsrc": "/images/simarts/etan-ma-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -198,8 +198,8 @@
                         ],
                         "images": [
                             {
-                                "youngadultsrc": "/images/shrines/sims/doba-ya-fullbody.png",
-                                "occultsrc": "/images/shrines/sims/doba-oc-fullbody.png"
+                                "youngadultsrc": "/images/simarts/doba-ya-fullbody.png",
+                                "occultsrc": "/images/simarts/doba-oc-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -233,7 +233,7 @@
                         ],
                         "images": [
                             {
-                                "infantsrc": "/images/shrines/sims/ajei-in-fullbody.png"
+                                "infantsrc": "/images/simarts/ajei-in-fullbody.png"
                             }
                         ],
                         "relationships": [
