@@ -44,7 +44,9 @@
                             {"section": "Adulthood", "text": 
                             "While he and Salim fell out of love, they still got along well enough to raise their twin children, Etan and Elmira. It helped that Salim's writing career was able to boost Miguel's acting career into the stratosphere (and vice versa) to the point where their tiny home was expanded into a mansion, with butlers and in-house nannies to take care of the kids since Miguel and Salim were so busy. Miguel struggled desperately to find the balance between the three core components of his life, especially when aliens seemed to keep kidnapping him on top of everything."},
                             {"section": "Old Age", "text": 
-                            "Soon after Miguel aged up to an Elder, his acting capabilities rapidly dwindled. Taking an...actually pretty aptly timed retirement over it. With lots of time at home and with Salim, who retired just before him, the two of them got really into yoga and happily spent all their time hanging out in the Basilio house."}
+                            "Soon after Miguel aged up to an Elder, his acting capabilities rapidly dwindled. Taking an...actually pretty aptly timed retirement over it. With lots of time at home and with Salim, who retired just before him, the two of them got really into yoga and happily spent all their time hanging out in the Basilio house."},
+                            {"section": "Death", "text": 
+                            "Miguel passed away peacefully of old age on the Basilio house's patio as he watched the sun set one last time. He is honored by his twin children, Etan and Elmira Basilio. He died with all of his matters in order, and seemed to be looking forward to the end ever since his husband, Salim, passed away a year prior."}
                         ]
                     },
                     {
@@ -137,7 +139,7 @@
                             {"section": "Adulthood", "text": 
                             "Elmira took after her father, Salim, as she started reaching the wall that was the middle of her life; the time was passing her by and she hadn't even begun to start doing the things she wanted to do. She hated working at the gym, so she quit. She'd finally come to terms with her greyromanticism, and finally felt content enough with the ups and downs that came with that to get into a healthy relationship with a certain Doba Basilio. Who also turned out to be a werewolf. And some how, some way, fate rolled its hand and gave the two of them a daughter, Ajei Basilio, on the day Salim passed away, no less."},
                             {"section": "Death", "text": 
-                            "Elmira passed away suddenly in the family's foyer, grasping at her throat as she tried to catch her breath from laughter. Officially, her autopsy says it was an asthma attack that got her. She is honored by her widow, Doba Basilio, her twin, Etan Basilio, and her only daughter, Ajei Basilio. She passed away on Ajei's birthday, not able to see her age up to a full child."}
+                            "Elmira passed away suddenly in the family's foyer, grasping at her throat as she tried to catch her breath from laughter. Officially, her autopsy says it was a severe asthma attack, complicated by the lit fireplace behind her. She is honored by her widow, Doba Basilio, her twin, Etan Basilio, and her only daughter, Ajei Basilio. She passed away on Ajei's birthday, never able to see her age up to a full child."}
                         ]
                     },
                     {
@@ -217,7 +219,9 @@
                             {"section": "Pre-Legacy", "text": 
                             "Doba Basilio lived a pretty average life, moving from reservation to reservation as his parents' work demanded it. But that work didn't offer him much time with them. Instead, he spent his time getting into urban exploration, digging through abandoned buildings just for the fun of it. But, he pushed his luck too far, and one night was bitten by...something he couldn't catch a sight of. That something turned out to be a werewolf, passing its curse along to him. Horrified of what he'd become, Doba ran away, moving as far as he could with the money he could scrape, to try and find a cure for himself."},
                             {"section": "Young Adulthood", "text": 
-                            "Scavenging through every werewolf forum he could, Doba met Elmira Basilio, who was just as interested in the speculation about the werewolf curse as he was...somehow even more than he was. They hit it off immediately when they finally met in person, and Doba knew he was in love. When he came clean about the truth of his...interest in werewolves, Elmira accepted him brazenly, admitting she liked him even more because of it. He moved into the Basilio house very shortly after that, with his newly adopted cat, Cosmo, after learning Elmira was pregnant."}
+                            "Scavenging through every werewolf forum he could, Doba met Elmira Basilio, who was just as interested in the speculation about the werewolf curse as he was...somehow even more than he was. They hit it off immediately when they finally met in person, and Doba knew he was in love. When he came clean about the truth of his...interest in werewolves, Elmira accepted him brazenly, admitting she liked him even more because of it. He moved into the Basilio house very shortly after that, with his newly adopted cat, Cosmo, after learning Elmira was pregnant."},
+                            {"section": "Adulthood", "text": 
+                            "Doba started his middle age as a widow, after Elmira's sudden death from a severe asthma attack right in front of him. His pleas to the reaper remained unheard, as he sat and watched his lifeline get taken before his eyes. Nevertheless, he kept going for their only child, Ajei Basilio, who was to age up into a child that same day. Times were rough, the family fund was dwindling rapidly and Doba had to balance work and protecting his daughter from the same fate Elmira met."}
                         ]
                     }
                 ]
@@ -236,7 +240,7 @@
                         ],
                         "images": [
                             {
-                                "infantsrc": "/images/simarts/ajei-in-fullbody.png"
+                                "childsrc": "/images/simarts/ajei-ch-fullbody.png"
                             }
                         ],
                         "relationships": [
