@@ -72,7 +72,7 @@ const latestRef =
                         {char.relationships.map(rel =>
                             <li>
                                 {rel.link
-                                    ? <a href={`/shrines/sims/${rel.link}`}>{rel.name}</a>
+                                    ? <a href={`/profile/${rel.link}`}>{rel.name}</a>
                                     : <>{rel.name}</>
                                 } ({rel.relation})
                             </li>
@@ -83,12 +83,6 @@ const latestRef =
 
         <div class="col-12 pt-4">
             <h3>Biography</h3>
-            {char.isTrans && 
-                <div class="warning darkgradient p-2 mb-3">
-                    <h4>Disclaimer: On the use of pronouns</h4>
-                    <p style="padding-top:0">Each entry of this biography is written from a "present" point of view, capturing that character at that particular moment of their life (think of a third person diary entry). As such, the pronouns listed above for this <strong>trans character</strong> will not be reflected in entries prior to their coming out.</p>
-                </div>
-            }
             {char.blurbs.map(blurb =>
                 <h4>{blurb.section}</h4>
                 <p style="padding-top:0">{blurb.text}</p>
