@@ -236,7 +236,9 @@
                         "role": "Heir",
                         "status": "Alive, in household",
                         "traits": [
-                            "Intense (Infant)"
+                            "Intense (Infant)",
+                            "Independent (Toddler)",
+                            "Artistic"
                         ],
                         "images": [
                             {
