@@ -1,0 +1,7 @@
+---
+const { imgSrc, imgAlt } = Astro.props;
+---
+<figure class="blog lightgradient">
+    <img class="blogimg" alt={imgAlt} src={imgSrc}/>
+    <figcaption class="blog"><slot/></figcaption>
+</figure>
