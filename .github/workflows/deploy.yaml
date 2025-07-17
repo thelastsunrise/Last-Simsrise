@@ -1,0 +1,29 @@
+name: Deploy to Web
+
+env:
+  FORCE_COLOR: 1
+  NODE_VERSION: lts/*
+
+on:
+  push:
+    branches:
+      - master
+      # make sure your branch name matches! (ie. main, master, etc)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout the repository code
+        uses: actions/checkout@v4
+
+      # VIA https://github.com/marketplace/actions/sftp-uploader
+      - name: SFTP uploader
+        uses: wangyucode/sftp-upload-action@v2.0.4
+        with:
+          host: "sims.lastsunrise.art"
+          username: "lastsunrise-sims"
+          password: ${{ secrets.SFTP_PASSWORD }}
+          localDir: "dist"
+          remoteDir: "/home/lastsunrise-sims/htdocs/sims.lastsunrise.art/"
