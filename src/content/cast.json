@@ -149,7 +149,7 @@
                         "pronouns": "they/them",
                         "sexuality": "Heterosexual",
                         "role": "Child",
-                        "status": "Alive, in household",
+                        "status": "Alive, out of household",
                         "traits": [
                             "Cautious (Infant)",
                             "Clingy (Toddler)",
@@ -199,7 +199,8 @@
                             "Self-assured",
                             "Delightful",
                             "Impulsive",
-                            "Moody"
+                            "Moody",
+                            "Squeamish"
                         ],
                         "images": [
                             {
@@ -238,7 +239,8 @@
                         "traits": [
                             "Intense (Infant)",
                             "Independent (Toddler)",
-                            "Artistic"
+                            "Artistic",
+                            "Optimistic"
                         ],
                         "images": [
                             {
