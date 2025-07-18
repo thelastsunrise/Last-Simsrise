@@ -22,7 +22,7 @@ jobs:
       - name: SFTP uploader
         uses: wangyucode/sftp-upload-action@v2.0.4
         with:
-          host: "sims.lastsunrise.art"
+          host: "sims"
           username: "lastsunrise-sims"
           password: ${{ secrets.SFTP_PASSWORD }}
           localDir: "dist"
