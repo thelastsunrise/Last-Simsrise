@@ -26,4 +26,4 @@ jobs:
           username: "sims"
           password: ${{ secrets.SFTP_PASSWORD }}
           localDir: "dist"
-          remoteDir: "/home/lastsunrise-sims/htdocs/sims.lastsunrise.art/"
+          remoteDir: "/home/sims/htdocs/sims.lastsunrise.art/"
