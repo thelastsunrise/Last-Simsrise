@@ -1,8 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 
+// sort posts, first by gen and if gen is equal then by chapter
 const posts = (await getCollection('sims')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+    (a, b) => {
+      if (a.data.generation !== b.data.generation) {
+        return b.data.generation - a.data.generation;
+      }
+      return b.data.chapter - a.data.chapter;
+    }
 );
 
 const currentPost = posts.findIndex((post) => post.id === Astro.params.id);
