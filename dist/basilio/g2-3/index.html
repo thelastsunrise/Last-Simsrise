@@ -240,4 +240,167 @@ body.simslayout {
 <p>Unfortunately, Miguel passed out on the cafe couch for the entire date and didn’t want to admit it, so he gave Elmira the thumbs up and decided she was old enough to make her own decisions.</p>
 <p>Speaking of Miguel, on the side of all of this kept having things go wrong. Not once, but twice was he kidnapped again by aliens, and in a completely separate incident had to go to the emergency room after choking on a vegan BLT. Along with all of this, the town of Windenberg has decided he’s the recipient for all death announcements, having to report himself that <strong>Robert Lin</strong>, <strong>Quincy Reynard</strong>, <strong>Eva Flex</strong> (née Rosalene) and <strong>Waluigi Wah</strong> had passed away of old age.</p>
 <figure class="blog lightgradient"> <picture> <source srcset type="image/webp">  <img src="/images/blog/basiliox2-3-aliensagain.png" alt="A Sims 4 screenshot, Miguel Basilio getting abducted by aliens" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: {400}px) {400}px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="NaN" height="NaN" class="blogimg"> </picture> <figcaption class="blog"><p>WHY does this keep happening to him man. I don’t get it.</p></figcaption> </figure>
-<p>But, he’d found it becoming easier and easier every day to handle these crazy twists and turns, and same with Salim. The two weren’t quite sure still if their relationship was platonic or romantic, but they knew they were happy with this arrangement and were okay not having an answer. The year came and went.</p> <hr> <div class="pb-5 navbuttons"><span class="float-start mb-3"><a href="/basilio/g2-2/">&larr; 2.2: Some Semblance of Normalcy</a></span><span class="float-end mb-3"><a href="/basilio/g2-4/">2.4: Welcome to Adulthood &rarr;</a></span></div>  </section> </div> </main> <footer class="row mb-5 mx-3"> <div class="col-12"> <footer class="row"> <div class="col-12 footer-text text-center"> <div> <p>Last Sunrise est. 2023 &#9734 Last updated <span>Tue Jul 15 2025</span></p> <p><a href="https://lastsunrise.art/sitemap">Sitemap</a> &#10023; <a href="https://lastsunrise.art/copyright">Copyright</a> &#10023; <a href="https://lastsunrise.art/rss">RSS</a> &#10023; <a href="mailto:cat@lastsunrise.art">Email</a></p> </div> </div> <div class="footer-filler"></div> </footer> </div> </footer> </div> <script src="/scripts/ClickImage.js"></script> </body> </html>
+<p>But, he’d found it becoming easier and easier every day to handle these crazy twists and turns, and same with Salim. The two weren’t quite sure still if their relationship was platonic or romantic, but they knew they were happy with this arrangement and were okay not having an answer. The year came and went.</p> <hr> <div class="pb-5 navbuttons"><span class="float-start mb-3"><a href="/basilio/g2-2/">&larr; 2.2: Some Semblance of Normalcy</a></span><span class="float-end mb-3"><a href="/basilio/g2-4/">2.4: Welcome to Adulthood &rarr;</a></span></div> <div class="comments-section" data-post-id="unknown-post"> <h3>Comments</h3> <form id="comment-form"> <div class="form-group"> <label for="author-name">Name *</label> <input type="text" id="author-name" name="authorName" placeholder="Your name" required> </div> <div class="form-group"> <label for="author-url">Website (optional)</label> <input type="url" id="author-link" name="authorLink" placeholder="yoursite.com"> </div> <div class="form-group"> <label for="comment-content">Comment *</label> <textarea id="comment-content" name="content" placeholder="Share your thoughts..." required></textarea> </div> <button type="submit" id="submit-btn">Submit Comment</button> <div id="form-message" class="form-message"></div> </form> <div id="comments-container"> <p>Loading...</p> </div> </div> <script>(function(){const postId = "unknown-post";
+const apiURL = "https://comments-api.lastsunrise.art";
+
+    let isSubmitting = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('Using postId:', postId); // DEBUG
+        loadComments();
+        setupForm();
+    });
+
+    // note to self: despite the fact that astro docs say you don't need async tags, you do in fact need them
+    async function loadComments() {
+    try {
+      // grab comments
+      const response = await fetch(`${apiURL}/comments/${postId}`);
+      
+      // convert to json
+      const data = await response.json();
+      
+      // error check
+      if (data.success) {
+        displayComments(data.comments); // show the comments
+      } else {
+        showError('Failed to load comments'); // show error message
+      }
+    } catch (error) {
+      // more detailed errors oooo
+      console.error('Failed to load comments:', error);
+      showError('Failed to load comments');
+    }
+  }
+
+  // actually render comments
+  function displayComments(comments) {
+    const container = document.getElementById('comments-container');
+    
+    // no comments check
+    if (comments.length === 0) {
+      container.innerHTML = '<p>Nothing here yet, want to be the first?</p>';
+      return;
+    }
+    
+    // convert every object to html and then join all that html
+    container.innerHTML = comments.map(comment => `
+      <div class="comment">
+        <div class="comment-header">
+          <span class="comment-author">${escapeHtml(comment.author_name)}</span>
+          <span class="comment-date">${formatDate(comment.created_at)}</span>
+        </div>
+        <p class="comment-content">${escapeHtml(comment.content)}</p>
+      </div>
+    `).join('');
+  }
+
+  function setupForm() {
+    // All of The Elements.
+    const form = document.getElementById('comment-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const messageDiv = document.getElementById('form-message');
+    
+    // wait very patiently for submit button click
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // no spam refreshes
+      if (isSubmitting) return; // or double clicks
+      
+      // generate keys n values for db
+      const formData = new FormData(form);
+      const authorName = formData.get('authorName').trim();
+      const authorLink = formData.get('authorLink').trim();
+      const content = formData.get('content').trim();
+      
+      // check if author name is empty
+      if (!authorName || !content) {
+        showMessage('Please fill in all required fields.', 'error');
+        return;
+      }
+      
+      // loading state
+      isSubmitting = true;
+      submitBtn.disabled = true; // disable submit button
+      submitBtn.textContent = 'Submitting...';
+      hideMessage(); // clear any previous messages
+      
+      try {
+        // POST to db
+        const response = await fetch(`${apiURL}/comments`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          // convert form data to JSON
+          body: JSON.stringify({
+            postId,
+            authorName,
+            authorLink: authorLink || null,
+            content,
+            siteOrigin: window.location.hostname
+          })
+        });
+        
+        // parse response
+        const data = await response.json();
+        
+        if (data.success) {
+          showMessage('Comment submitted successfully!', 'success');
+          form.reset(); // clear form fields
+          
+          // reload comments after 2 secs to display the new one :-)
+          setTimeout(() => {
+            loadComments();
+            hideMessage();
+          }, 2000);
+        } else {
+          showMessage(data.error || 'Failed to submit comment', 'error');
+        }
+      } catch (error) {
+        console.error('Failed to submit comment:', error);
+        showMessage('Failed to submit comment. Please try again.', 'error');
+      } finally {
+        // reset load state
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Comment';
+      }
+    });
+  }
+
+  // show messages
+  function showMessage(message, type) {
+    const messageDiv = document.getElementById('form-message');
+    messageDiv.textContent = message;
+    messageDiv.className = `form-message ${type}`; // css inject
+  }
+  
+  // hide messages
+  function hideMessage() {
+    const messageDiv = document.getElementById('form-message');
+    messageDiv.style.display = 'none';
+  }
+  
+  // security
+  function escapeHtml(unsafe) {
+    return unsafe
+      .replace(/&/g, "&amp;")   // & becomes &amp;
+      .replace(/</g, "&lt;")    // < becomes &lt;
+      .replace(/>/g, "&gt;")    // > becomes &gt;
+      .replace(/"/g, "&quot;")  // " becomes &quot;
+      .replace(/'/g, "&#039;"); // ' becomes &#039;
+  }
+  
+  // reformat dates
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',    // 2024
+      month: 'short',     // Jan, Feb, etc.
+      day: 'numeric',     // 1, 2, 3, etc.
+      hour: '2-digit',    // 01, 02, etc.
+      minute: '2-digit'   // 01, 02, etc.
+    });
+  }
+})();</script> </section> </div> </main> <footer class="row mb-5 mx-3"> <div class="col-12"> <footer class="row"> <div class="col-12 footer-text text-center"> <div> <p>Last Sunrise est. 2023 &#9734 Last updated <span>Tue Jul 15 2025</span></p> <p><a href="https://lastsunrise.art/sitemap">Sitemap</a> &#10023; <a href="https://lastsunrise.art/copyright">Copyright</a> &#10023; <a href="https://lastsunrise.art/rss">RSS</a> &#10023; <a href="mailto:cat@lastsunrise.art">Email</a></p> </div> </div> <div class="footer-filler"></div> </footer> </div> </footer> </div> <script src="/scripts/ClickImage.js"></script> </body> </html>
