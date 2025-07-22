@@ -201,4 +201,8 @@ body.simslayout {
     .overlayimg {
         background-color: #030f20ac;
     }
+
+    .comment {
+        border-left: var(--blue) solid 3pt;
+    }
 }
