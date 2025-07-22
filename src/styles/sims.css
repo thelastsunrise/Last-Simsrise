@@ -125,6 +125,22 @@ body.simslayout {
         max-height: 500px;
     }
 
+    .age-image {
+        display: none;
+    }
+    
+    .age-image.active {
+        display: block;
+    }
+    
+    .simimg {
+        margin: auto;
+        max-width: 100%;
+        max-height: 400px;
+        width: auto;
+        display: block;
+    }
+
     .navbuttons {
         * {
             padding: 0.25rem;

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import SimsLayout from "../../layouts/SimsLayout.astro";
+import SimImage from "../../components/SimImage.astro"; // Adjust path as needed
 
 export async function getStaticPaths() {
     const sims = await getCollection("simsCast");
@@ -24,36 +25,14 @@ export async function getStaticPaths() {
 }
 
 const { char, generation } = Astro.props;
-
-const latestRef = 
-    char.images[0].eldersrc ||
-    char.images[0].matureadultsrc ||
-    char.images[0].youngadultsrc ||
-    char.images[0].teenagesrc ||
-    char.images[0].childsrc ||
-    char.images[0].occultsrc;
 ---
 <SimsLayout title=`${char.name} (${char.pronouns})`>
     <div class="row pt-3">
-        <div class="col-12 col-sm-6 col-lg-4 text-center">
-            <div class="tabs">
-                {char.images[0].childsrc && <button onclick="changeImage('ch')">Child</button>}
-                {char.images[0].teenagesrc && <button onclick="changeImage('tn')">Teenager</button>}
-                {char.images[0].youngadultsrc && <button onclick="changeImage('ya')">Young Adult</button>}
-                {char.images[0].matureadultsrc && <button onclick="changeImage('ma')">Adult</button>}
-                {char.images[0].eldersrc && <button onclick="changeImage('el')">Elder</button>}
-                {char.images[0].occultsrc && <button onclick="changeImage('oc')">Werewolf</button>}
-            </div>
-            <div id="referenceImageContainer">
-                <img id="referenceImage" src={latestRef}
-                    data-ch={char.images[0].childsrc}
-                    data-tn={char.images[0].teenagesrc}
-                    data-ya={char.images[0].youngadultsrc}
-                    data-ma={char.images[0].matureadultsrc}
-                    data-el={char.images[0].eldersrc}
-                    data-oc={char.images[0].occultsrc}
-                ></img>
-            </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <SimImage 
+                char={char} 
+                imgAlt={`${char.name}'s fullbody character art`}
+            />
         </div>
 
         <div class="col-12 col-sm-6 col-lg-8">
@@ -90,11 +69,3 @@ const latestRef =
         </div>
     </div>
 </SimsLayout>
-
-<script is:inline>
-    // changes image src by way of the data in the actual image element
-    function changeImage(age) {
-        const image = document.getElementById("referenceImage");
-        image.src = image.dataset[age];
-    }
-</script>

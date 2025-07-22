@@ -1,0 +1,75 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const { char, imgAlt } = Astro.props;
+
+// grab simarts from directory. because astro sucks and i need to meta.glob import Everything
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/images/simarts/**"
+)
+
+// image keys
+const ageImages = {};
+const ageConfig = [
+    { key: 'ch', src: char.images[0].childsrc, label: 'Child' },
+    { key: 'tn', src: char.images[0].teenagesrc, label: 'Teenager' },
+    { key: 'ya', src: char.images[0].youngadultsrc, label: 'Young Adult' },
+    { key: 'ma', src: char.images[0].matureadultsrc, label: 'Adult' },
+    { key: 'el', src: char.images[0].eldersrc, label: 'Elder' },
+    { key: 'oc', src: char.images[0].occultsrc, label: 'Werewolf' }
+];
+
+// processing the keys
+for (const config of ageConfig) {
+    if (config.src && images[config.src]) {
+        ageImages[config.key] = {
+            processed: (await images[config.src]()).default,
+            label: config.label
+        };
+    }
+}
+---
+
+<div class="sim-image-container">
+    <!-- selection buttons -->
+    <div class="tabs">
+        {Object.entries(ageImages).map(([key, data]) => (
+            <button onclick={`showImage('${key}')`}>{data.label}</button>
+        ))}
+    </div>
+    
+    <!-- actual images -->
+    <figure class="sim-image" id="referenceImageContainer">
+        {Object.entries(ageImages).map(([key, data], index) => (
+            <div 
+                class={`age-image ${index === Object.keys(ageImages).length - 1 ? 'active' : ''}`}
+                data-age={key}
+            >
+                <Picture
+                    src={data.processed}
+                    alt={imgAlt}
+                    class="simimg"
+                    widths={[360, 720]}
+                    sizes="(max-width:799px) 100vw, (min-width:800px) 100vw"
+                    format="webp"
+                />
+            </div>
+        ))}
+        <figcaption class="sim-caption"><slot/></figcaption>
+    </figure>
+</div>
+
+<script is:inline>
+    function showImage(age) {
+        // hide all other images
+        const allImages = document.querySelectorAll('.age-image');
+        allImages.forEach(img => img.classList.remove('active'));
+        
+        // show the selected image
+        const targetImage = document.querySelector(`[data-age="${age}"]`);
+        if (targetImage) {
+            targetImage.classList.add('active');
+        }
+    }
+</script>
