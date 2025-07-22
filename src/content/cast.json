@@ -20,9 +20,9 @@
                         ],
                         "images": [
                             {
-                                "youngadultsrc": "/images/simarts/miguel-ya-fullbody.png",
-                                "matureadultsrc": "/images/simarts/miguel-ma-fullbody.png",
-                                "eldersrc": "/images/simarts/miguel-el-fullbody.png"
+                                "youngadultsrc": "/src/images/simarts/miguel-ya-fullbody.png",
+                                "matureadultsrc": "/src/images/simarts/miguel-ma-fullbody.png",
+                                "eldersrc": "/src/images/simarts/miguel-el-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -63,9 +63,9 @@
                         ],
                         "images": [
                             {
-                                "youngadultsrc": "/images/simarts/salim-ya-fullbody.png",
-                                "matureadultsrc": "/images/simarts/salim-ma-fullbody.png",
-                                "eldersrc": "/images/simarts/salim-el-fullbody.png"
+                                "youngadultsrc": "/src/images/simarts/salim-ya-fullbody.png",
+                                "matureadultsrc": "/src/images/simarts/salim-ma-fullbody.png",
+                                "eldersrc": "/src/images/simarts/salim-el-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -111,10 +111,10 @@
                         ],
                         "images": [
                             {
-                                "childsrc": "/images/simarts/elmira-ch-fullbody.png",
-                                "teenagesrc": "/images/simarts/elmira-tn-fullbody.png",
-                                "youngadultsrc": "/images/simarts/elmira-ya-fullbody.png",
-                                "matureadultsrc": "/images/simarts/elmira-ma-fullbody.png"
+                                "childsrc": "/src/images/simarts/elmira-ch-fullbody.png",
+                                "teenagesrc": "/src/images/simarts/elmira-tn-fullbody.png",
+                                "youngadultsrc": "/src/images/simarts/elmira-ya-fullbody.png",
+                                "matureadultsrc": "/src/images/simarts/elmira-ma-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -159,10 +159,10 @@
                         ],
                         "images": [
                             {
-                                "childsrc": "/images/simarts/etan-ch-fullbody.png",
-                                "teenagesrc": "/images/simarts/etan-tn-fullbody.png",
-                                "youngadultsrc": "/images/simarts/etan-ya-fullbody.png",
-                                "matureadultsrc": "/images/simarts/etan-ma-fullbody.png"
+                                "childsrc": "/src/images/simarts/etan-ch-fullbody.png",
+                                "teenagesrc": "/src/images/simarts/etan-tn-fullbody.png",
+                                "youngadultsrc": "/src/images/simarts/etan-ya-fullbody.png",
+                                "matureadultsrc": "/src/images/simarts/etan-ma-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -205,8 +205,8 @@
                         ],
                         "images": [
                             {
-                                "youngadultsrc": "/images/simarts/doba-ya-fullbody.png",
-                                "occultsrc": "/images/simarts/doba-oc-fullbody.png"
+                                "youngadultsrc": "/src/images/simarts/doba-ya-fullbody.png",
+                                "occultsrc": "/src/images/simarts/doba-oc-fullbody.png"
                             }
                         ],
                         "relationships": [
@@ -246,7 +246,7 @@
                         ],
                         "images": [
                             {
-                                "childsrc": "/images/simarts/ajei-ch-fullbody.png"
+                                "childsrc": "/src/images/simarts/ajei-ch-fullbody.png"
                             }
                         ],
                         "relationships": [
