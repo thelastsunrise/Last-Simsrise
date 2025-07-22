@@ -255,6 +255,7 @@
                             {"name": "Doba Basilio", "relation": "Father", "link": "doba-basilio"},
                             {"name": "Etan Basilio", "relation": "Pibling", "link": "etan-basilio"},
                             {"name": "Miguel Basilio", "relation": "Grandfather", "link": "miguel-basilio"},
+                            {"name": "Stevie Sexton", "relation": "Best friend"},
                             {"name": "Cosmo", "relation": "Pet, Cat"}
                         ],
                         "blurbs": [
