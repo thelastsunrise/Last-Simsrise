@@ -12,12 +12,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 // image keys
 const ageImages = {};
 const ageConfig = [
+    { key: 'oc', src: char.images[0].occultsrc, label: 'Werewolf' },
     { key: 'ch', src: char.images[0].childsrc, label: 'Child' },
     { key: 'tn', src: char.images[0].teenagesrc, label: 'Teenager' },
     { key: 'ya', src: char.images[0].youngadultsrc, label: 'Young Adult' },
     { key: 'ma', src: char.images[0].matureadultsrc, label: 'Adult' },
-    { key: 'el', src: char.images[0].eldersrc, label: 'Elder' },
-    { key: 'oc', src: char.images[0].occultsrc, label: 'Werewolf' }
+    { key: 'el', src: char.images[0].eldersrc, label: 'Elder' }
 ];
 
 // processing the keys
@@ -35,7 +35,7 @@ for (const config of ageConfig) {
     <!-- selection buttons -->
     <div class="tabs text-center">
         {Object.entries(ageImages).map(([key, data]) => (
-            <button class="mx-1 mb-2" onclick={`showImage('${key}')`}>{data.label}</button>
+            <button class="mx-1 mb-2 p-2" onclick={`showImage('${key}')`}>{data.label}</button>
         ))}
     </div>
     
