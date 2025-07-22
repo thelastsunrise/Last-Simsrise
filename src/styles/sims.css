@@ -204,5 +204,15 @@ body.simslayout {
 
     .comment {
         border-left: var(--blue) solid 3pt;
+        background-color: var(--secondarybg);
+    }
+
+    .comment-date {
+        color: var(--tertiarybg);
+        float: inline-end;
+    }
+
+    .comment-author {
+        font-weight: 600;
     }
 }
