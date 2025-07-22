@@ -6,26 +6,26 @@ const { apiURL = "https://comments-api.lastsunrise.art" } = Astro.props;
 // extract postId from the URL path for the sake of proper uploads
 const postId = Astro.url.pathname.split('/').filter(segment => segment.length > 0).pop() || 'unknown-post';
 ---
-<section class="comments-section" data-post-id={postId}>
+<section class="comments-section" data-post-id={postId} style="border:none">
     <h3>Comments</h3>
     
-    <form id="comment-form">
-        <div class="form-group">
-        <label for="author-name">Name *</label>
-        <input type="text" id="author-name" name="authorName" placeholder="Your name" required>
+    <form class="row g-3" id="comment-form">
+        <div class="form-group col-12 col-lg-6">
+            <label class="form-label" for="author-name">Name *</label>
+            <input class="form-control" type="text" id="author-name" name="authorName" placeholder="Your name" required>
+        </div>
+        
+        <div class="form-group col-12 col-lg-6">
+        <label class="form-label" for="author-url">Website (optional)</label>
+        <input class="form-control" type="url" id="author-link" name="authorLink" placeholder="yoursite.com">
         </div>
         
         <div class="form-group">
-        <label for="author-url">Website (optional)</label>
-        <input type="url" id="author-link" name="authorLink" placeholder="yoursite.com">
+        <label class="form-label" for="comment-content">Comment *</label>
+        <textarea class="form-control" id="comment-content" name="content" placeholder="Share your thoughts..." required></textarea>
         </div>
         
-        <div class="form-group">
-        <label for="comment-content">Comment *</label>
-        <textarea id="comment-content" name="content" placeholder="Share your thoughts..." required></textarea>
-        </div>
-        
-        <button type="submit" id="submit-btn">Submit Comment</button>
+        <button class="col-auto btn" type="submit" id="submit-btn">Submit Comment</button>
         <div id="form-message" class="form-message"></div>
     </form>
 
