@@ -4,6 +4,10 @@ env:
   FORCE_COLOR: 1
   NODE_VERSION: lts/*
 
+concurrency:
+  group: deploy-to-neocities
+  cancel-in-progress: true
+
 on:
   push:
     branches:
@@ -27,3 +31,19 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           localDir: "dist"
           remoteDir: "/home/sims/htdocs/sims.lastsunrise.art/"
+
+      - name: Add Redirect to HTML Files
+        run: |
+          for file in $(find dist -name '*.html'); do
+            url_path=$(echo $file | sed 's/dist\///' | sed 's/\index.html$//')
+            sed -i 's|<head>|<head><meta http-equiv="refresh" content="0; URL=https://sims.lastsunrise.art/'"$url_path"'">|' "$file"
+          done
+        
+      # THIS & THE PREVIOUS REST OF THIS SCRIPT ARE FROM https://github.com/professorsugoi/Deploy-Astro-Neocities/tree/master
+      - name: Deploy to Neocities
+        uses: bcomnes/deploy-to-neocities@master
+        with:
+          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+          cleanup: true
+          dist_dir: dist
+        # if dist_dir is within a subfolder, update the filepath to reflect that
