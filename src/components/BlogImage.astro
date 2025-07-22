@@ -1,9 +1,26 @@
 ---
 import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 const { imgSrc, imgAlt } = Astro.props;
+
+// import all images in blog directory, code yoinked from https://www.reddit.com/r/astrojs/comments/1lmppn9/comment/n0ca3at/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/images/blog/**.{jpeg,jpg,png,gif,webp,svg}"
+)
 ---
-<figure class="blog lightgradient">
-    <Picture src={imgSrc} alt={imgAlt} layout="constrained" width="{400}" height="{200}" loading="lazy" class="blogimg"/>
-    <figcaption class="blog"><slot/></figcaption>
-</figure>
+{
+    imgSrc && images[imgSrc] && (
+        <figure class="blog lightgradient">
+            <Picture
+                src={(await images[imgSrc]()).default}
+                alt={imgAlt}
+                class="blogimg h-auto"
+                widths={[360, 720]}
+                sizes="(max-width:799px) 100vw, (min-width:800px) 100vw"
+                format="webp"
+            />
+            <figcaption class="blog"><slot/></figcaption>
+        </figure>
+    )
+}
