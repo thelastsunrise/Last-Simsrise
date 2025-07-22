@@ -200,7 +200,8 @@
                             "Delightful",
                             "Impulsive",
                             "Moody",
-                            "Squeamish"
+                            "Squeamish",
+                            "Plant Lover"
                         ],
                         "images": [
                             {
@@ -234,6 +235,7 @@
                         "name": "Ajei Basilio",
                         "gender": "Female",
                         "pronouns": "she/her",
+                        "sexuality": "Heterosexual (Questioning)",
                         "role": "Heir",
                         "status": "Alive, in household",
                         "traits": [
