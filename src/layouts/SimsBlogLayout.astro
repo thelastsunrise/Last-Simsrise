@@ -1,6 +1,7 @@
 ---
 import SimsLayout from "./SimsLayout.astro";
 import BlogNextPrevButtons from "../components/BlogNextPrevButtons.astro";
+import Comments from "../components/Comments.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -15,4 +16,5 @@ const { frontmatter } = Astro.props;
 
     <hr/>
     <BlogNextPrevButtons/>
+    <Comments>
 </SimsLayout>
