@@ -223,6 +223,10 @@ body.simslayout {
     .overlayimg {
         background-color: #030f20ac;
     }
+
+    .comment {
+        border-left: var(--blue) solid 3pt;
+    }
 }</style></head><body class="simslayout"> <a href="https://lastsunrise.art"><div class="escapebutton">X</div></a> <div class="container"> <header class="row"> <div class="col-12"> <h1 class="text-center mt-5"><a href="/">Last Simsrise</a></h1> <nav class="navbar navbar-expand-md justify-content-around"> <div class="navbar-nav"> <a class="nav-link" href="/">Home</a> <a class="nav-link" href="/basilio">Legacy</a> <li class="dropdown"> <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Cast</a> <ul class="dropdown-menu"> <li><a class="nav-link" href="/profile/miguel-basilio">Miguel Basilio</a></li><li><a class="nav-link" href="/profile/salim-basilio">Salim Basilio</a></li><li><a class="nav-link" href="/profile/elmira-basilio">Elmira Basilio</a></li><li><a class="nav-link" href="/profile/etan-basilio">Etan Basilio</a></li><li><a class="nav-link" href="/profile/doba-basilio">Doba Basilio</a></li><li><a class="nav-link" href="/profile/ajei-basilio">Ajei Basilio</a></li> </ul> </li> <a class="nav-link disabled" href="">Mods</a> <a class="nav-link disabled" href="">Links</a> </div> </nav> </div> </header> <main class="row px-lg-5 pb-5 pt-4 mb-5 lightgradient"> <div class="col-12"> <h2>Basilio Legacy</h2> <section class="px-4">  <h3>3.2 - We&#39;ll Figure it Out</h3> <p><strong>Published</strong>: 2025-07-16</p> <p>Etan moves out, Elmira and Doba discover Murphy&#39;s Law, Ajei grows up, and the tone of this tale continues shifting to grey.</p> <div class="pb-5 navbuttons"><span class="float-start mb-3"><a href="/basilio/g3-1/">&larr; 3.1: Passing the Torch</a></span></div> <hr> <p>After Miguel and Bailey were gone and all their funerary arrangements were in order, Etan broke the news to Elmira that they couldn’t live in this house anymore. They told her that they knew about the secret wedding, that they were happy Elmira had a new number one, but that they couldn’t stay stuck in the past. They already had a new place lined up and everything, fortunately just a neighborhood away in the island on South Windenburg.</p>
 <p>Elmira was sad, of course, but after everything she understood why they needed to go and find something new for themself. The goodbye was hopeful, with lots of visits and babysitting shifts promised in the near future.</p>
 <figure class="blog lightgradient"> <picture> <source srcset type="image/webp">  <img src="/images/blog/basiliox3-2-goodbyeetan.png" alt="A Sims 4 screenshot, Elmira and Etan hugging in front of the Basilio House." loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: {400}px) {400}px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="NaN" height="NaN" class="blogimg"> </picture> <figcaption class="blog"><p>One last goodbye.</p></figcaption> </figure>
@@ -240,167 +244,178 @@ body.simslayout {
 <p>Fortunately, or unfortunately, Ajei was too young to really even comprehend what had happened. All she knew was that mommy was gone and that daddy would be extra busy for a while. But that was okay! She had lots of art supplies to occupy herself with in those weeks.</p>
 <figure class="blog lightgradient"> <picture> <source srcset type="image/webp">  <img src="/images/blog/basiliox3-2-artsncrafts.png" alt="A Sims 4 screenshot, " loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: {400}px) {400}px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="NaN" height="NaN" class="blogimg"> </picture> <figcaption class="blog"><p>Lalalala ^.^</p></figcaption> </figure>
 <p>She got lots of visits from auncle Etan, too! They seemed really sad as well, probably because of her mom like her dad. But they came over to hang out lots, and Ajei loved to chat their ear off about anything and everything, showing them all the drawings of their dolls and toys.</p>
-<figure class="blog lightgradient"> <picture> <source srcset type="image/webp">  <img src="/images/blog/basiliox3-2-auncleetan.png" alt="A Sims 4 screenshot, Etan hugging a smiling Ajei in the snow." loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: {400}px) {400}px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="NaN" height="NaN" class="blogimg"> </picture> <figcaption class="blog"><p>Who knows if she’d have the same relationship with her auncle if Elmira never passed.</p></figcaption> </figure> <hr> <div class="pb-5 navbuttons"><span class="float-start mb-3"><a href="/basilio/g3-1/">&larr; 3.1: Passing the Torch</a></span></div> <div class="comments-section" data-post-id="unknown-post"> <h3>Comments</h3> <form id="comment-form"> <div class="form-group"> <label for="author-name">Name *</label> <input type="text" id="author-name" name="authorName" placeholder="Your name" required> </div> <div class="form-group"> <label for="author-url">Website (optional)</label> <input type="url" id="author-link" name="authorLink" placeholder="yoursite.com"> </div> <div class="form-group"> <label for="comment-content">Comment *</label> <textarea id="comment-content" name="content" placeholder="Share your thoughts..." required></textarea> </div> <button type="submit" id="submit-btn">Submit Comment</button> <div id="form-message" class="form-message"></div> </form> <div id="comments-container"> <p>Loading...</p> </div> </div> <script>(function(){const postId = "unknown-post";
+<figure class="blog lightgradient"> <picture> <source srcset type="image/webp">  <img src="/images/blog/basiliox3-2-auncleetan.png" alt="A Sims 4 screenshot, Etan hugging a smiling Ajei in the snow." loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: {400}px) {400}px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="NaN" height="NaN" class="blogimg"> </picture> <figcaption class="blog"><p>Who knows if she’d have the same relationship with her auncle if Elmira never passed.</p></figcaption> </figure> <hr> <div class="pb-5 navbuttons"><span class="float-start mb-3"><a href="/basilio/g3-1/">&larr; 3.1: Passing the Torch</a></span></div> <section class="comments-section" data-post-id="g3-2" style="border:none"> <h3>Comments</h3> <form class="row g-3" id="comment-form"> <div class="form-group col-12 col-lg-6"> <label class="form-label" for="author-name">Name *</label> <input class="form-control" type="text" id="author-name" name="authorName" placeholder="Your name" required> </div> <div class="form-group col-12 col-lg-6"> <label class="form-label" for="author-url">Website (optional)</label> <input class="form-control" type="url" id="author-link" name="authorLink" placeholder="yoursite.com"> </div> <div class="form-group"> <label class="form-label" for="comment-content">Comment *</label> <textarea class="form-control" id="comment-content" name="content" placeholder="Share your thoughts..." required></textarea> </div> <button class="col-auto btn p-2" type="submit" id="submit-btn">Submit Comment</button> <div id="form-message" class="form-message"></div> </form> <hr> <div id="comments-container"> <p>Loading...</p> </div> </section> <script>(function(){const postId = "g3-2";
 const apiURL = "https://comments-api.lastsunrise.art";
 
     let isSubmitting = false;
 
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log('Using postId:', postId); // DEBUG
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Using postId:", postId); // DEBUG
         loadComments();
         setupForm();
     });
 
     // note to self: despite the fact that astro docs say you don't need async tags, you do in fact need them
     async function loadComments() {
-    try {
-      // grab comments
-      const response = await fetch(`${apiURL}/comments/${postId}`);
-      
-      // convert to json
-      const data = await response.json();
-      
-      // error check
-      if (data.success) {
-        displayComments(data.comments); // show the comments
-      } else {
-        showError('Failed to load comments'); // show error message
-      }
-    } catch (error) {
-      // more detailed errors oooo
-      console.error('Failed to load comments:', error);
-      showError('Failed to load comments');
-    }
-  }
+        try {
+            // grab comments
+            const response = await fetch(`${apiURL}/comments/${postId}`);
 
-  // actually render comments
-  function displayComments(comments) {
-    const container = document.getElementById('comments-container');
-    
-    // no comments check
-    if (comments.length === 0) {
-      container.innerHTML = '<p>Nothing here yet, want to be the first?</p>';
-      return;
+            // convert to json
+            const data = await response.json();
+
+            // error check
+            if (data.success) {
+                displayComments(data.comments); // show the comments
+            } else {
+                showError("Failed to load comments"); // show error message
+            }
+        } catch (error) {
+            // more detailed errors oooo
+            console.error("Failed to load comments:", error);
+            showError("Failed to load comments");
+        }
     }
-    
-    // convert every object to html and then join all that html
-    container.innerHTML = comments.map(comment => `
-      <div class="comment">
+
+    // actually render comments
+    function displayComments(comments) {
+        const container = document.getElementById("comments-container");
+
+        // no comments check
+        if (comments.length === 0) {
+            container.innerHTML =
+                "<p>Nothing here yet, want to be the first?</p>";
+            return;
+        }
+
+        // convert every object to html and then join all that html
+        container.innerHTML = comments
+            .map(
+                (comment) => `
+      <article class="comment px-3 py-1 mb-3">
         <div class="comment-header">
           <span class="comment-author">${escapeHtml(comment.author_name)}</span>
           <span class="comment-date">${formatDate(comment.created_at)}</span>
         </div>
         <p class="comment-content">${escapeHtml(comment.content)}</p>
-      </div>
-    `).join('');
-  }
+      </article>
+    `,
+            )
+            .join("");
+    }
 
-  function setupForm() {
-    // All of The Elements.
-    const form = document.getElementById('comment-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const messageDiv = document.getElementById('form-message');
-    
-    // wait very patiently for submit button click
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // no spam refreshes
-      if (isSubmitting) return; // or double clicks
-      
-      // generate keys n values for db
-      const formData = new FormData(form);
-      const authorName = formData.get('authorName').trim();
-      const authorLink = formData.get('authorLink').trim();
-      const content = formData.get('content').trim();
-      
-      // check if author name is empty
-      if (!authorName || !content) {
-        showMessage('Please fill in all required fields.', 'error');
-        return;
-      }
-      
-      // loading state
-      isSubmitting = true;
-      submitBtn.disabled = true; // disable submit button
-      submitBtn.textContent = 'Submitting...';
-      hideMessage(); // clear any previous messages
-      
-      try {
-        // POST to db
-        const response = await fetch(`${apiURL}/comments`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          // convert form data to JSON
-          body: JSON.stringify({
-            postId,
-            authorName,
-            authorLink: authorLink || null,
-            content,
-            siteOrigin: window.location.hostname
-          })
+    function setupForm() {
+        // All of The Elements.
+        const form = document.getElementById("comment-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const messageDiv = document.getElementById("form-message");
+
+        // wait very patiently for submit button click
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); // no spam refreshes
+            if (isSubmitting) return; // or double clicks
+
+            // generate keys n values for db
+            const formData = new FormData(form);
+            const authorName = formData.get("authorName").trim();
+            const authorLink = formData.get("authorLink").trim();
+            const content = formData.get("content").trim();
+
+            // check if author name is empty
+            if (!authorName || !content) {
+                showMessage("Please fill in all required fields.", "error");
+                return;
+            }
+
+            // loading state
+            isSubmitting = true;
+            submitBtn.disabled = true; // disable submit button
+            submitBtn.textContent = "Submitting...";
+            hideMessage(); // clear any previous messages
+
+            try {
+                // POST to db
+                const response = await fetch(`${apiURL}/comments`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    // convert form data to JSON
+                    body: JSON.stringify({
+                        postId,
+                        authorName,
+                        authorLink: authorLink || null,
+                        content,
+                        siteOrigin: window.location.hostname,
+                    }),
+                });
+
+                // parse response
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage("Comment submitted successfully!", "success");
+                    form.reset(); // clear form fields
+
+                    // reload comments after 2 secs to display the new one :-)
+                    setTimeout(() => {
+                        loadComments();
+                        hideMessage();
+                    }, 2000);
+                } else {
+                    showMessage(
+                        data.error || "Failed to submit comment",
+                        "error",
+                    );
+                }
+            } catch (error) {
+                console.error("Failed to submit comment:", error);
+                showMessage(
+                    "Failed to submit comment. Please try again.",
+                    "error",
+                );
+            } finally {
+                // reset load state
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit Comment";
+            }
         });
-        
-        // parse response
-        const data = await response.json();
-        
-        if (data.success) {
-          showMessage('Comment submitted successfully!', 'success');
-          form.reset(); // clear form fields
-          
-          // reload comments after 2 secs to display the new one :-)
-          setTimeout(() => {
-            loadComments();
-            hideMessage();
-          }, 2000);
-        } else {
-          showMessage(data.error || 'Failed to submit comment', 'error');
-        }
-      } catch (error) {
-        console.error('Failed to submit comment:', error);
-        showMessage('Failed to submit comment. Please try again.', 'error');
-      } finally {
-        // reset load state
-        isSubmitting = false;
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Comment';
-      }
-    });
-  }
+    }
 
-  // show messages
-  function showMessage(message, type) {
-    const messageDiv = document.getElementById('form-message');
-    messageDiv.textContent = message;
-    messageDiv.className = `form-message ${type}`; // css inject
-  }
-  
-  // hide messages
-  function hideMessage() {
-    const messageDiv = document.getElementById('form-message');
-    messageDiv.style.display = 'none';
-  }
-  
-  // security
-  function escapeHtml(unsafe) {
-    return unsafe
-      .replace(/&/g, "&amp;")   // & becomes &amp;
-      .replace(/</g, "&lt;")    // < becomes &lt;
-      .replace(/>/g, "&gt;")    // > becomes &gt;
-      .replace(/"/g, "&quot;")  // " becomes &quot;
-      .replace(/'/g, "&#039;"); // ' becomes &#039;
-  }
-  
-  // reformat dates
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',    // 2024
-      month: 'short',     // Jan, Feb, etc.
-      day: 'numeric',     // 1, 2, 3, etc.
-      hour: '2-digit',    // 01, 02, etc.
-      minute: '2-digit'   // 01, 02, etc.
-    });
-  }
-})();</script> </section> </div> </main> <footer class="row mb-5 mx-3"> <div class="col-12"> <footer class="row"> <div class="col-12 footer-text text-center"> <div> <p>Last Sunrise est. 2023 &#9734 Last updated <span>Tue Jul 15 2025</span></p> <p><a href="https://lastsunrise.art/sitemap">Sitemap</a> &#10023; <a href="https://lastsunrise.art/copyright">Copyright</a> &#10023; <a href="https://lastsunrise.art/rss">RSS</a> &#10023; <a href="mailto:cat@lastsunrise.art">Email</a></p> </div> </div> <div class="footer-filler"></div> </footer> </div> </footer> </div> <script src="/scripts/ClickImage.js"></script> </body> </html>
+    // show messages
+    function showMessage(message, type) {
+        const messageDiv = document.getElementById("form-message");
+        messageDiv.textContent = message;
+        messageDiv.className = `form-message ${type}`; // css inject
+    }
+
+    // hide messages
+    function hideMessage() {
+        const messageDiv = document.getElementById("form-message");
+        messageDiv.style.display = "none";
+    }
+
+    // security
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;") // & becomes &amp;
+            .replace(/</g, "&lt;") // < becomes &lt;
+            .replace(/>/g, "&gt;") // > becomes &gt;
+            .replace(/"/g, "&quot;") // " becomes &quot;
+            .replace(/'/g, "&#039;"); // ' becomes &#039;
+    }
+
+    // reformat dates
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+
+        return date.toLocaleDateString("en-US", {
+            year: "numeric", // 2024
+            month: "short", // Jan, Feb, etc.
+            day: "numeric", // 1, 2, 3, etc.
+            hour: "2-digit", // 01, 02, etc.
+            minute: "2-digit", // 01, 02, etc.
+        });
+    }
+})();</script>  </section> </div> </main> <footer class="row mb-5 mx-3"> <div class="col-12"> <footer class="row"> <div class="col-12 footer-text text-center"> <div> <p>Last Sunrise est. 2023 &#9734 Last updated <span>Tue Jul 15 2025</span></p> <p><a href="https://lastsunrise.art/sitemap">Sitemap</a> &#10023; <a href="https://lastsunrise.art/copyright">Copyright</a> &#10023; <a href="https://lastsunrise.art/rss">RSS</a> &#10023; <a href="mailto:cat@lastsunrise.art">Email</a></p> </div> </div> <div class="footer-filler"></div> </footer> </div> </footer> </div> <script src="/scripts/ClickImage.js"></script> </body> </html>
