@@ -33,9 +33,9 @@ for (const config of ageConfig) {
 
 <div class="sim-image-container">
     <!-- selection buttons -->
-    <div class="tabs">
+    <div class="tabs text-center">
         {Object.entries(ageImages).map(([key, data]) => (
-            <button onclick={`showImage('${key}')`}>{data.label}</button>
+            <button class="mx-1 mb-2" onclick={`showImage('${key}')`}>{data.label}</button>
         ))}
     </div>
     
