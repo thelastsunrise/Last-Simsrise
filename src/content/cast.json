@@ -206,6 +206,7 @@
                         "images": [
                             {
                                 "youngadultsrc": "/src/images/simarts/doba-ya-fullbody.png",
+                                "matureadultsrc": "/src/images/simarts/doba-ma-fullbody.png",
                                 "occultsrc": "/src/images/simarts/doba-oc-fullbody.png"
                             }
                         ],
@@ -247,7 +248,8 @@
                         ],
                         "images": [
                             {
-                                "childsrc": "/src/images/simarts/ajei-ch-fullbody.png"
+                                "childsrc": "/src/images/simarts/ajei-ch-fullbody.png",
+                                "teenagesrc": "/src/images/simarts/ajei-tn-fullbody.png"
                             }
                         ],
                         "relationships": [
